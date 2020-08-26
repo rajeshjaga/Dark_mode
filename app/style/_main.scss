@@ -1,0 +1,73 @@
+main {
+  letter-spacing: 2px;
+  font-weight: 400;
+  background-color: $backgroundTile;
+  position: relative;
+  transition: all 0.3s ease-in 0.1s;
+  .before {
+    position: fixed;
+    transition: all 0.5s ease-in 0.3s;
+    height: 50vh;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background: $background;
+    z-index: 0;
+  }
+  .main-container {
+    position: relative;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    z-index: 100;
+    @import "switch";
+    @include breakDown(medium) {
+      font-size: 75%;
+      text-align: center;
+      flex-direction: column;
+      .switch {
+        margin-top: 2rem;
+        .pointer {
+          height: 20px;
+          width: 20px;
+        }
+        input[type="checkbox"]:checked + label .pointer {
+          transform: translateX(23px);
+        }
+      }
+    }
+  }
+}
+.container {
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  .card {
+    height: 30vh;
+    width: 320px;
+    position: relative;
+    background: $cardDarkTile;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #262626;
+    margin: 1rem;
+    box-shadow: 0px 10px 10px 5px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease-in;
+    &:before {
+      content: "";
+      height: 5px;
+      width: 100%;
+      position: absolute;
+      background: $blueAccent;
+    }
+    .card-container {
+      padding: 1.5rem 1rem;
+      .card-author {
+        margin-top: 4.5rem;
+      }
+    }
+  }
+}
